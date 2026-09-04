@@ -242,6 +242,14 @@ async function login(req, res) {
   return res.status(200).json({
     message: "User login successfully.",
     success: true,
+    user:{
+      id: user._id,
+      name: user.name,
+      username: user.username,
+      email: user.email,
+      createdAt: user.createdAt,
+      updatedAt: user.updatedAt,
+    },
     msg: `User login successfully ${user.email}.`
   })
 
@@ -496,7 +504,7 @@ async function getMe(req, res) {
 
       <!-- Login Button -->
       <a
-        href="${process.env.FRONTEND_URL}/api/auth/login"
+        href="${process.env.FRONTEND_URL}:5173/login"
         class="button"
       >
         Continue to Login
