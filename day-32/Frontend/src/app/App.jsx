@@ -9,7 +9,6 @@ const App = () => {
   const auth = useAuth()
 
   useEffect(()=>{
-     console.log("APP useEffect RUNNING");
    auth.handleGetMe()
   },[])
 

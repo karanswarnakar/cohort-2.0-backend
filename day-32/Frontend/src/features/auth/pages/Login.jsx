@@ -4,7 +4,7 @@ import { useState } from "react"
 import Button from "../../components/Button"
 import { useAuth } from "../hooks/useAuth"
 import { useSelector } from "react-redux"
-import {Navigate} from "react-router"
+import { Navigate } from "react-router"
 const Login = () => {
 
     const { handleLogin } = useAuth()
@@ -13,7 +13,7 @@ const Login = () => {
     const lodding = useSelector(state => state.auth.lodding)
 
     console.log(user, lodding);
-    
+
 
     const navigate = useNavigate()
 
@@ -27,6 +27,14 @@ const Login = () => {
 
 
         navigate("/")
+    }
+
+    if (lodding) {
+        return (
+            <main className="h-[100vh] text-gray-600 text-3xl font-bold flex justify-center items-center">
+                Lodding...
+            </main>
+        )
     }
 
     if (!lodding && user) {
