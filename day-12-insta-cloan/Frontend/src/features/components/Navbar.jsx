@@ -8,15 +8,11 @@ const Navbar = () => {
 
                 {/* Brand */}
                 <div className="navbar__brand">
-                    <div className="navbar__brand-logo">
-                        S
-                    </div>
 
                     <span className="navbar__brand-name">
-                        Social<span>Sphere</span>
+                        Socially
                     </span>
                 </div>
-
 
                 {/* Search */}
                 <div className="navbar__search">
@@ -32,14 +28,12 @@ const Navbar = () => {
 
                     <input
                         type="text"
-                        placeholder="Search..."
+                        placeholder="Search"
                     />
                 </div>
 
-
                 {/* Actions */}
                 <div className="navbar__actions">
-
                     <button className="navbar__create">
                         <span>+</span>
                         <span className="navbar__create-text">
@@ -47,16 +41,12 @@ const Navbar = () => {
                         </span>
                     </button>
 
-
                     <button className="navbar__profile">
-
                         <img
                             src="https://i.pravatar.cc/100?img=12"
                             alt="Profile"
                         />
-
                     </button>
-
                 </div>
 
             </div>

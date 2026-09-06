@@ -5,6 +5,8 @@ import { useNavigate, Navigate } from 'react-router'
 import Button from '../../components/Button'
 import { useAuth } from "../hooks/useAuth";
 import { useSelector } from 'react-redux'
+
+
 const Register = () => {
    const { handleRegister } = useAuth()
    const navigate = useNavigate()
@@ -17,9 +19,10 @@ const Register = () => {
    const [password, setPassword] = useState("")
 
    const submitHandler = async (e) => {
-      e.previentDefault()
+      e.preventDefault()
 
       await handleRegister({ username, email, password })
+
 
       navigate("/")
    }
@@ -82,6 +85,7 @@ const Register = () => {
                         onChange={(e) => {
                            setPassword(e.target.value)
                         }}
+                        maxLength={8}
                      />
                   </div>
 

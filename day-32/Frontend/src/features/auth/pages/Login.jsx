@@ -12,7 +12,6 @@ const Login = () => {
     const user = useSelector(state => state.auth.user)
     const lodding = useSelector(state => state.auth.lodding)
 
-    console.log(user, lodding);
 
 
     const navigate = useNavigate()
@@ -73,6 +72,7 @@ const Login = () => {
                                     onChange={(e) => {
                                         setPassword(e.target.value)
                                     }}
+                                     maxLength={8}
                                 />
                             </div>
 

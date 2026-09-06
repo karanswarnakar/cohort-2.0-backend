@@ -31,7 +31,7 @@ const CreatePost = () => {
     return (
         <>
         <Navbar />
-        <main>
+        <main className="create-post">
             <div className="form-container">
                 <h1>Create Post</h1>
 

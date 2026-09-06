@@ -6,28 +6,25 @@ import LeftPanel from "../components/LeftPanel";
 import RightPanel from "../components/RightPanel";
 
 import { usePost } from "../hooks/usePost";
-import {useProfile} from "../../profile/hooks/useProfile.jsx";
-
+import { useProfile } from "../../profile/hooks/useProfile.jsx";
 
 import { useNavigate } from "react-router";
 import Navbar from "../../components/Navbar";
-import { useContext } from "react";
-const Feed = () => {
 
+const Feed = () => {
     const {
         feed,
         loading,
-        user,
         hendelFeed,
         hendelLike,
         hendeldisLike,
         hendelGetMe,
-        setPost
+        setPost,
     } = usePost();
 
-    const {handleGetProfileByUsername} = useProfile()
+    const { handleGetProfileByUsername } = useProfile();
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     useEffect(() => {
         const checkAuth = async () => {
@@ -46,44 +43,41 @@ const Feed = () => {
 
     if (loading && feed.length === 0) {
         return (
-            <main>
+            <main className="feed-loading">
                 <h1>Feed loading....</h1>
             </main>
         );
     }
 
-
     return (
-        
         <>
-        <Navbar/>
-        <main className="contener">
+            <Navbar />
 
-            <LeftPanel />
+            <main className="contener">
 
-            <div className="feed-contener">
+                <LeftPanel />
 
-                <div className="posts">
+                <section className="feed-contener">
+                    <div className="posts">
+                        {feed.map((post) => (
+                            <Post
+                                key={post._id}
+                                user={post.user}
+                                post={post}
+                                hendelLike={hendelLike}
+                                hendeldisLike={hendeldisLike}
+                                setPost={setPost}
+                                handleGetProfileByUsername={
+                                    handleGetProfileByUsername
+                                }
+                            />
+                        ))}
+                    </div>
+                </section>
 
-                    {feed.map(post => (
-                        <Post
-                            user={post.user}
-                            post={post}
-                            key={post._id}
-                            hendelLike={hendelLike}
-                            hendeldisLike={hendeldisLike}
-                            setPost={setPost}
-                            handleGetProfileByUsername={handleGetProfileByUsername}
-                        />
-                    ))}
+                <RightPanel />
 
-                </div>
-
-            </div>
-
-            <RightPanel />
-
-        </main>
+            </main>
         </>
     );
 };
